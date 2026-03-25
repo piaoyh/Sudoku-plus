@@ -8,20 +8,19 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 
-use std::ops::AddAssign;
+use std::cmp::PartialEq;
 use cryptocol::number::SmallUInt;
 use cryptocol::random::{ Random, RandGen };
-use crate::SudokuElement;
 
 
 // #[derive(Clone)]
-pub struct PlaneSudoku<T: SmallUInt = u8, const N: usize = 3>
+pub struct PlaneSudoku<T: SmallUInt + PartialEq = u8, const N: usize = 3>
 {
     sudoku: [[[[T; N]; N]; N]; N],
     random: RandGen,
 }
 
-impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
+impl<T: SmallUInt + PartialEq, const N: usize> PlaneSudoku<T, N>
 {
     pub fn new() -> Self
     {

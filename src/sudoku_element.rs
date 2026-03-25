@@ -9,7 +9,7 @@
 
 
 use std::cmp::PartialEq;
-use cryptocol::number::SmallUInt;
+// use cryptocol::number::SmallUInt;
 
 pub trait SudokuElement<Rhs = Self> : PartialEq<Rhs> + Copy + Clone
 where Rhs: ?Sized
