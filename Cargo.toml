@@ -1,0 +1,8 @@
+[package]
+name = "sudoku-plus"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+#cryptocol = "0.19"
+cryptocol = { path = "/home/youngho/dacha/Cryptocol" }
