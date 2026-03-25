@@ -15,13 +15,13 @@ use crate::SudokuElement;
 
 
 // #[derive(Clone)]
-pub struct PlainSudoku<T: SmallUInt = u8, const N: usize = 3>
+pub struct PlaneSudoku<T: SmallUInt = u8, const N: usize = 3>
 {
     sudoku: [[[[T; N]; N]; N]; N],
     random: RandGen,
 }
 
-impl<T: SmallUInt, const N: usize> PlainSudoku<T, N>
+impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
 {
     pub fn new() -> Self
     {
@@ -179,9 +179,8 @@ impl<T: SmallUInt, const N: usize> PlainSudoku<T, N>
                 elem[r][c] = n;
                 n = n.wrapping_add(T::ONE);
             }
-            self.random.shuffle(&mut elem[r]);
         }
-        self.random.shuffle(&mut elem);
+        self.shuffle(&mut elem);
         elem
     }
 

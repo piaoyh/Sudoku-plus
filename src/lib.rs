@@ -11,27 +11,27 @@
 //! # Sudoku-plus
 //!
 //! `Sudoku-plus` is a library for providing various kinds of sudoku algorithms.
-//! It provides 2-dimensional plain sudoku algorithm, 3-dimensional multiplain
-//! sudoku algorithm, and 3-dimentional cubic sudoku algorithm. They generates
+//! It provides 2D plane sudoku algorithm, 3-dimensional multiplane
+//! sudoku algorithm, and 3D cubic sudoku algorithm. They generates
 //! sudoku problems and solves sudoku problems.
-//! 
-/// The `plain_sudoku` module provides the struct `PlainSudoku`
-/// for 2-dimensional plain sudoku.
-pub mod plain_sudoku;
 
-/// The `multiplain_sudoku` module provides the struct `MultiplainSudoku`
-/// for 3-dimensional multiplain sudoku.
-pub mod multiplain_sudoku;
+/// The `plane_sudoku` module provides the struct `PlaneSudoku`
+/// for 2D plane sudoku.
+pub mod plane_sudoku;
+
+/// The `multiplane_sudoku` module provides the struct `MultiplaneSudoku`
+/// for 3D multi-plane sudoku.
+pub mod multiplane_sudoku;
 
 /// The `cubic_sudoku` module provides the struct `CubicSudoku`
-/// for 3-dimensional cubic sudoku.
+/// for 3D cubic sudoku.
 pub mod cubic_sudoku;
 
 /// The `sudoku_element` module provides the trait `SudokuElement`
 /// for sudoku elements.
 pub mod sudoku_element;
 
-pub use plain_sudoku::PlainSudoku;
-pub use multiplain_sudoku::MultiplainSudoku;
+pub use plane_sudoku::PlaneSudoku;
+pub use multiplane_sudoku::MultiplaneSudoku;
 pub use cubic_sudoku::CubicSudoku;
 pub use sudoku_element::SudokuElement;
