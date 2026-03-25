@@ -4,11 +4,11 @@ name = "sudoku-plus"
 version = "0.1.0"
 edition = "2024"
 keywords = ["sudoku", "puzzle", "game", "board", "solver"]
-categories = ["algorithms", "games", "game development", "game engines"]
+categories = ["algorithms", "games", "game-development", "game-engines"]
 description = "sudoku-plus is a versatile Rust library designed for generating and solving various Sudoku structures, including Plane, Multi-plane, and Cubic Sudoku."
 license = "MIT OR Apache-2.0"
 readme = "README.md"
-repository = "https://github.com/piaoyh/qrate"
+repository = "https://github.com/piaoyh/Sudoku-plus"
 
 [dependencies]
 cryptocol = "0.19"
