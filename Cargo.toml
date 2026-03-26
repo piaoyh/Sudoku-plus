@@ -1,7 +1,7 @@
 [package]
 authors = ["PARK Youngho"]
 name = "sudoku-plus"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 keywords = ["sudoku", "puzzle", "game", "board", "solver"]
 categories = ["algorithms", "games", "game-development", "game-engines"]

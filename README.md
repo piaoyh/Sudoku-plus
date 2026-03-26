@@ -19,10 +19,10 @@ The following features are planned for the `sudoku-plus` ecosystem.
 ### 2. 3D Sudoku
 
 - [ ] **Multi-plane Sudoku:** A 3D Sudoku structure with dimensions of (N^2 X N^2 X N^2). The size is determined by the constant `N`.  --
-      [MultiplaneSudoku](https://docs.rs/sudoku-plus/latest/sudoku-plus/number/big_uint/struct.BigUInt.html#struct.BigUInt).
+      [MultiplaneSudoku](https://docs.rs/sudoku-plus/latest/sudoku-plus/number/big_uint/struct.BigUInt.html#struct.BigUInt)
 
 - [ ] **Cubic Sudoku:** A 3D Sudoku structure with dimensions of (N^3 X N^3 X N^3). The size is determined by the constant `N`. --
-      [CubicSudoku](https://docs.rs/sudoku-plus/latest/sudoku-plus/number/big_uint/struct.BigUInt.html#struct.BigUInt).
+      [CubicSudoku](https://docs.rs/sudoku-plus/latest/sudoku-plus/number/big_uint/struct.BigUInt.html#struct.BigUInt)
 
 
 ### 3. Sudoku Elements

@@ -8,10 +8,20 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 
-use std::cmp::PartialEq;
+use cryptocol::number::SmallUInt;
+// use std::cmp::PartialEq;
 // use cryptocol::number::SmallUInt;
 
-pub trait SudokuElement<Rhs = Self> : PartialEq<Rhs> + Copy + Clone
+
+pub trait TraitsSudokuElement<T>: SmallUInt + Copy + Clone + Eq
+{}
+
+impl<T> TraitsSudokuElement<T> for T
+where T: SmallUInt + Copy + Clone + Eq
+{}
+
+
+pub trait SudokuElement<Rhs = Self>: SmallUInt + Copy + Clone + Eq
 where Rhs: ?Sized
 {
     fn new() -> Self;

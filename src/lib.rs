@@ -35,3 +35,4 @@ pub use plane_sudoku::PlaneSudoku;
 pub use multiplane_sudoku::MultiplaneSudoku;
 pub use cubic_sudoku::CubicSudoku;
 pub use sudoku_element::SudokuElement;
+pub use sudoku_element::TraitsSudokuElement;

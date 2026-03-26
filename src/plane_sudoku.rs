@@ -8,20 +8,43 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 
-use std::cmp::PartialEq;
-use cryptocol::number::SmallUInt;
 use cryptocol::random::{ Random, RandGen };
 
+use crate::TraitsSudokuElement;
 
-// #[derive(Clone)]
-pub struct PlaneSudoku<T: SmallUInt + PartialEq = u8, const N: usize = 3>
+
+/// # Introduction
+/// Sudoku is the one of the famous puzzle games. This struct `PlaneSudoku` is 
+/// a generic 2D Sudoku algorithm that generates and solves problems. Its size
+/// is a (N^2 X N^2) grid. You can define the size by choosing the generic
+/// constant `N`.
+/// 
+/// # Generic Constants
+/// - `T`: is supposed to be any data type that supports
+///   cryptocol::number::SmallUInt + Copy + Clone + Eq. At the momnet,
+///   `T` can be one of `u8`, `u16`, `u32`, `u64`, `u128`, and `usize`.
+///   In the future, this crate will provide some useful datatypes for `T`
+///   that supports cryptocol::number::SmallUInt + Copy + Clone + Eq.
+///   The default type is `u8`.
+/// - `N`: determines the size of sudoku board.
+///   `N` indicates the size of a sub-square, which is `N` X `N`.
+///   The sudoku board is composed of `N` rows of `N` columns of sub-squares.
+///   So, the size of the sudoku board is N^2 X N X N (= N^2 X N^2).
+///   For example, if `N` = 3, the size of the sudoku board is 9 X 9.
+///   The default value of `N` = `3`.
+pub struct PlaneSudoku<T: TraitsSudokuElement<T> = u8, const N: usize = 3>
 {
     sudoku: [[[[T; N]; N]; N]; N],
     random: RandGen,
 }
 
-impl<T: SmallUInt + PartialEq, const N: usize> PlaneSudoku<T, N>
+impl<T: TraitsSudokuElement<T>, const N: usize> PlaneSudoku<T, N>
 {
+    // pub fn new() -> Self
+    /// Creates a new object of `PlaneSudoku`.
+    /// 
+    /// # Returns
+    /// A new object of `PlaneSudoku`.
     pub fn new() -> Self
     {
         Self
@@ -31,6 +54,15 @@ impl<T: SmallUInt + PartialEq, const N: usize> PlaneSudoku<T, N>
         }
     }
 
+    // pub fn new_with(problem: [[[[T; N]; N]; N]; N]) -> Self
+    /// Creates a new object of `PlaneSudoku` out of problem array.
+    /// 
+    /// # Arguments
+    /// - `problem`: is a 4-dimensional array of `T`
+    ///   with the size `N` X `N` X `N` X `N`.
+    /// 
+    /// # Returns
+    /// A new object of `PlaneSudoku`.
     pub fn new_with(problem: [[[[T; N]; N]; N]; N]) -> Self
     {
         Self
@@ -40,6 +72,17 @@ impl<T: SmallUInt + PartialEq, const N: usize> PlaneSudoku<T, N>
         }
     }
 
+    // pub fn new_with_<const M: usize>(problem: [[T; M]; M]) -> Option<Self>
+    /// Creates a new object of `PlaneSudoku` wrapped by `Some`
+    /// out of problem array.
+    /// 
+    /// # Arguments
+    /// - `problem`: is a 4-dimensional array of `T`
+    ///   with the size `M` X `M`, where `M` == `N^2`.
+    /// 
+    /// # Returns
+    /// A new object of `PlaneSudoku` wrapped by `Some` if `M` == `N^2`.
+    /// `None` if `M` != `N^2`.
     pub fn new_with_<const M: usize>(problem: [[T; M]; M]) -> Option<Self>
     {
         if N * N != M
@@ -65,6 +108,16 @@ impl<T: SmallUInt + PartialEq, const N: usize> PlaneSudoku<T, N>
         Some(me)
     }
 
+    // pub fn generate(&mut self, n_holes: usize)
+    /// Generates a sudoku problem with `n_holes` holes (blanks).
+    /// 
+    /// # Arguments
+    /// - `n_holes`: is the number of holes (blanks) in the generated sudoku
+    ///   board.
+    /// 
+    /// # Features
+    /// - If `n_holes` is `zero`, the generated sudoku board is
+    ///   a complete solution.
     pub fn generate(&mut self, n_holes: usize)
     {
         self.sudoku = [[[[T::zero(); N]; N]; N]; N];
@@ -79,6 +132,18 @@ impl<T: SmallUInt + PartialEq, const N: usize> PlaneSudoku<T, N>
         }
     }
 
+    // pub fn check(&self, row: usize, col: usize, ro: usize, co: usize, point: T) -> bool
+    /// Checks whether `point` can be fit to the location (row, col, ro, co).
+    /// 
+    /// # Arguments
+    /// - `row`: is vertical location of the sub-square in the sudoku board.
+    /// - `col`: is horizontal location of the sub-square in the sudoku board.
+    /// - `ro`: is vertical location of the blank in the sub-square.
+    /// - `co`: is horizontal location of the blank in the sub-square.
+    /// 
+    /// # Returns
+    /// - `true` if `point` can be fit to the location (row, col, ro, co).
+    /// - `false` if `point` cannot be fit to the location (row, col, ro, co).
     pub fn check(&self, row: usize, col: usize, ro: usize, co: usize, point: T) -> bool
     {
         for r in 0..N
@@ -118,6 +183,13 @@ impl<T: SmallUInt + PartialEq, const N: usize> PlaneSudoku<T, N>
         true
     }
 
+    // pub fn solve(&mut self) -> bool
+    /// Solves the given sudoku problem.
+    /// 
+    /// # Returns
+    /// - `true` if there is a solution and this method solves
+    ///   the given problem successfully.
+    /// - `false` if there is no solution.
     pub fn solve(&mut self) -> bool
     {
         let mut elem = self.create_random_stack();
