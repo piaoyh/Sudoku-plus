@@ -13,22 +13,22 @@ The following features are planned for the `sudoku-plus` ecosystem.
 ### 1. 2D Sudoku
 
 - [ ] **PlaneSudoku:** A generic 2D Sudoku with a (N^2 X N^2) grid. You can define the size by choosing the constant `N`. --
-      [PlaneSudoku](https://docs.rs/sudoku-plus/latest/sudoku-plus/number/small_uint/trait.SmallUInt.html#trait.SmallUInt)
+      [PlaneSudoku](https://docs.rs/sudoku-plus/latest/sudoku_plus/plane_sudoku/struct.PlaneSudoku.html.PlaneSudoku)
 
 
 ### 2. 3D Sudoku
 
 - [ ] **Multi-plane Sudoku:** A 3D Sudoku structure with dimensions of (N^2 X N^2 X N^2). The size is determined by the constant `N`.  --
-      [MultiplaneSudoku](https://docs.rs/sudoku-plus/latest/sudoku-plus/number/big_uint/struct.BigUInt.html#struct.BigUInt)
+      [MultiplaneSudoku](https://docs.rs/sudoku-plus/latest/sudoku_plus/multiplane_sudoku/struct.MultiplaneSudoku.html.MultiplaneSudoku)
 
 - [ ] **Cubic Sudoku:** A 3D Sudoku structure with dimensions of (N^3 X N^3 X N^3). The size is determined by the constant `N`. --
-      [CubicSudoku](https://docs.rs/sudoku-plus/latest/sudoku-plus/number/big_uint/struct.BigUInt.html#struct.BigUInt)
+      [CubicSudoku](https://docs.rs/sudoku-plus/latest/sudoku_plus/cubic_sudoku/struct.CubicSudoku.html.CubicSudoku)
 
 
 ### 3. Sudoku Elements
 
 - [ ] **Sudoku Element:** A generic Sudoku component designed for building complex applications, such as academic timetable generators powered by Sudoku algorithms. --
-      [SudokuElement](https://docs.rs/sudoku-plus/latest/sudoku-plus/number/big_uint/struct.BigUInt.html#struct.BigUInt).
+      [SudokuElement](https://docs.rs/sudoku-plus/latest/sudoku_plus/sudoku_element/struct.SudokuElement.html.SudokuElement).
 
 
 ## Versioning Policy
