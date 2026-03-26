@@ -9,19 +9,12 @@
 
 
 use cryptocol::number::SmallUInt;
-// use std::cmp::PartialEq;
-// use cryptocol::number::SmallUInt;
 
-
-pub trait TraitsSudokuElement<T>: SmallUInt + Copy + Clone + Eq
-{}
-
-impl<T> TraitsSudokuElement<T> for T
-where T: SmallUInt + Copy + Clone + Eq
-{}
-
-
-pub trait SudokuElement<Rhs = Self>: SmallUInt + Copy + Clone + Eq
+/// For the future use, this trait `SudokuElement` is defined for sudoku
+/// elements. It is supposed to be implemented by any data type that supports
+/// cryptocol::number::SmallUInt. It can be removed in the future
+/// if it is not necessary.
+pub trait SudokuElement<Rhs = Self>: SmallUInt
 where Rhs: ?Sized
 {
     fn new() -> Self;
@@ -29,7 +22,7 @@ where Rhs: ?Sized
     fn one() -> Self;
 }
 
-
+/*
 macro_rules! SudokuElement_for_int_impl
 {
     ($($f:ty), *) => {
@@ -54,7 +47,7 @@ macro_rules! SudokuElement_for_int_impl
         )*
     };
 }
+*/
 
-
-SudokuElement_for_int_impl! { u8, u16, u32, u64, u128, usize }
+// SudokuElement_for_int_impl! { u8, u16, u32, u64, u128, usize }
 // SudokuElement_for_int_impl! { i8, i16, i32, i64, i128, isize }

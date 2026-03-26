@@ -8,9 +8,9 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 
+use cryptocol::number::SmallUInt;
 use cryptocol::random::{ Random, RandGen };
 
-use crate::TraitsSudokuElement;
 
 
 /// # Introduction
@@ -32,43 +32,60 @@ use crate::TraitsSudokuElement;
 ///   So, the size of the sudoku board is N^2 X N X N (= N^2 X N^2).
 ///   For example, if `N` = 3, the size of the sudoku board is 9 X 9.
 ///   The default value of `N` = `3`.
-pub struct PlaneSudoku<T: TraitsSudokuElement<T> = u8, const N: usize = 3>
+pub struct PlaneSudoku<T: SmallUInt = u8, const N: usize = 3>
 {
     sudoku: [[[[T; N]; N]; N]; N],
     random: RandGen,
 }
 
-impl<T: TraitsSudokuElement<T>, const N: usize> PlaneSudoku<T, N>
+impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
 {
-    // pub fn new() -> Self
-    /// Creates a new object of `PlaneSudoku`.
+    // pub fn new() -> Option<Self>
+    /// Creates a new object of `PlaneSudoku` wrapped by `Some`.
     /// 
     /// # Returns
-    /// A new object of `PlaneSudoku`.
-    pub fn new() -> Self
+    /// A new object of `PlaneSudoku` wrapped by `Some` if the size is valid.
+    /// `None` if the size is invalid.
+    pub fn new() -> Option<Self>
     {
-        Self
+        if T::MAX.into_u128() < (N as u128 * N as u128)
+            { None }
+        else
         {
-            sudoku: [[[[T::zero(); N]; N]; N]; N],
-            random: Random::new(),
+            Some(
+                Self
+                {
+                    sudoku: [[[[T::zero(); N]; N]; N]; N],
+                    random: Random::new(),
+                }
+            )
         }
     }
 
-    // pub fn new_with(problem: [[[[T; N]; N]; N]; N]) -> Self
-    /// Creates a new object of `PlaneSudoku` out of problem array.
+    // pub fn new_with(problem: [[[[T; N]; N]; N]; N]) -> Option<Self>
+    /// Creates a new object of `PlaneSudoku` wrapped by `Some`
+    /// out of problem array.
     /// 
     /// # Arguments
     /// - `problem`: is a 4-dimensional array of `T`
     ///   with the size `N` X `N` X `N` X `N`.
     /// 
     /// # Returns
-    /// A new object of `PlaneSudoku`.
-    pub fn new_with(problem: [[[[T; N]; N]; N]; N]) -> Self
+    /// A new object of `PlaneSudoku` wrapped by `Some` if the size is valid.
+    /// `None` if the size is invalid.
+    pub fn new_with(problem: [[[[T; N]; N]; N]; N]) -> Option<Self>
     {
-        Self
+        if T::MAX.into_u128() < (N as u128 * N as u128)
+            { None }
+        else
         {
-            sudoku: problem,
-            random: Random::new(),
+            Some(
+                Self
+                {
+                    sudoku: problem,
+                    random: Random::new(),
+                }
+            )
         }
     }
 
@@ -85,9 +102,9 @@ impl<T: TraitsSudokuElement<T>, const N: usize> PlaneSudoku<T, N>
     /// `None` if `M` != `N^2`.
     pub fn new_with_<const M: usize>(problem: [[T; M]; M]) -> Option<Self>
     {
-        if N * N != M
+        if N * N != M || T::MAX.into_u128() < (M as u128)
             { return None; }
-        
+
         let mut me = Self
         {
             sudoku: [[[[T::zero(); N]; N]; N]; N],
@@ -248,7 +265,7 @@ impl<T: TraitsSudokuElement<T>, const N: usize> PlaneSudoku<T, N>
             for c in 0..N
             {
                 elem[r][c] = n;
-                n = n.wrapping_add(T::ONE);
+                n += T::ONE;
             }
         }
         self.shuffle(&mut elem);
