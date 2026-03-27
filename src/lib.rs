@@ -12,7 +12,7 @@
 //! 
 //! `Sudoku-plus` is a versatile Rust library designed for providing
 //! various kinds of sudoku algorithms. It provides 2D plane sudoku algorithm,
-//! 3D multiplane sudoku algorithm, and 3D cubic sudoku algorithm.
+//! 3D multi-layer sudoku algorithm, and 3D cubic sudoku algorithm.
 //! They generates sudoku problems and solves sudoku problems. They are designed
 //! to be flexible and efficient, allowing users to easily create and solve
 //! sudoku puzzles of varying sizes and complexities. The library is built with
@@ -20,7 +20,7 @@
 //! puzzle enthusiasts and developers looking to integrate sudoku functionality
 //! into their applications. `sudoku-plus` is a versatile Rust library designed
 //! for generating and solving various Sudoku structures,
-//! including __Plane__, __Multi-plane__, and __Cubic__ Sudoku.
+//! including __Plane__, __Multi-layer__, and __Cubic__ Sudoku.
 //! 
 //! # Roadmap for Version 1.0
 //! 
@@ -38,9 +38,9 @@
 //! 
 //! # 2. 3D Sudoku
 //! 
-//! - [ ] __Multi-plane Sudoku:__ A 3D Sudoku structure with dimensions of 
+//! - [ ] __Multi-layer Sudoku:__ A 3D Sudoku structure with dimensions of 
 //!   (N^2 X N^2 X N^2). The size is determined by the constant `N`.  --
-//!   [MultiplaneSudoku](https://docs.rs/sudoku-plus/latest/sudoku_plus/multiplane_sudoku/struct.MultiplaneSudoku.html.MultiplaneSudoku)
+//!   [MultiLayerSudoku](https://docs.rs/sudoku-plus/latest/sudoku_plus/multi_layer_sudoku/struct.MultiLayerSudoku.html.MultiLayerSudoku)
 //! - [ ] __Cubic Sudoku:__ A 3D Sudoku structure with dimensions of (N^3 X N^3 X N^3). The size is determined by the constant `N`. --
 //!   [CubicSudoku](https://docs.rs/sudoku-plus/latest/sudoku_plus/cubic_sudoku/struct.CubicSudoku.html.CubicSudoku)
 //! 
@@ -76,9 +76,9 @@
 /// for 2D plane sudoku.
 pub mod plane_sudoku;
 
-/// The `multiplane_sudoku` module provides the struct `MultiplaneSudoku`
-/// for 3D multi-plane sudoku.
-pub mod multiplane_sudoku;
+/// The `multi_layer_Sudoku` module provides the struct `MultiLayerSudoku`
+/// for 3D multi-layer sudoku.
+pub mod multi_layer_sudoku;
 
 /// The `cubic_sudoku` module provides the struct `CubicSudoku`
 /// for 3D cubic sudoku.
@@ -89,6 +89,6 @@ pub mod cubic_sudoku;
 pub mod sudoku_element;
 
 pub use plane_sudoku::PlaneSudoku;
-pub use multiplane_sudoku::MultiplaneSudoku;
+pub use multi_layer_sudoku::MultiLayerSudoku;
 pub use cubic_sudoku::CubicSudoku;
 pub use sudoku_element::SudokuElement;

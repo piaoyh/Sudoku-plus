@@ -1,6 +1,6 @@
 # Sudoku-plus: An Expandable Sudoku Library
 
-`sudoku-plus` is a versatile Rust library designed for generating and solving various Sudoku structures, including __Plane__, __Multi-plane__, and __Cubic__ Sudoku.
+`sudoku-plus` is a versatile Rust library designed for generating and solving various Sudoku structures, including __Plane__, __Multi-layer__, and __Cubic__ Sudoku.
 
 ## Roadmap for Version 1.0
 
@@ -16,8 +16,8 @@ The following features are planned for the `sudoku-plus` ecosystem.
 
 ### 2. 3D Sudoku
 
-- [ ] __Multi-plane Sudoku:__ A 3D Sudoku structure with dimensions of (N^2 X N^2 X N^2). The size is determined by the constant `N`.  --
-      [MultiplaneSudoku](https://docs.rs/sudoku-plus/latest/sudoku_plus/multiplane_sudoku/struct.MultiplaneSudoku.html.MultiplaneSudoku)
+- [ ] __Multi-layer Sudoku:__ A 3D Sudoku structure with dimensions of (N^2 X N^2 X N^2). The size is determined by the constant `N`.  --
+      [MultiLayerSudoku](https://docs.rs/sudoku-plus/latest/sudoku_plus/multi_layer_sudoku/struct.MultiLayerSudoku.html.MultiLayerSudoku)
 
 - [ ] __Cubic Sudoku:__ A 3D Sudoku structure with dimensions of (N^3 X N^3 X N^3). The size is determined by the constant `N`. --
       [CubicSudoku](https://docs.rs/sudoku-plus/latest/sudoku_plus/cubic_sudoku/struct.CubicSudoku.html.CubicSudoku)
