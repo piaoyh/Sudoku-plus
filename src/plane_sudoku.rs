@@ -41,21 +41,22 @@ pub struct PlaneSudoku<T: SmallUInt = u8, const N: usize = 3>
 impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
 {
     // pub fn new() -> Option<Self>
-    /// Creates a new object of `PlaneSudoku` wrapped by `Some`.
+    /// Creates a new `PlaneSudoku` instance wrapped in `Some`.
     /// 
     /// # Returns
-    /// A new object of `PlaneSudoku` wrapped by `Some` if the size is valid.
-    /// `None` if the size is invalid.
+    /// - `Some(Self)` if the size `N^2` is within the representable range
+    ///   of the underlying type `T` (`N^2 <= T::MAX`).
+    /// - `None` if `N^2` exceeds the maximum value of `T`.
     pub fn new() -> Option<Self>
     {
-        if T::MAX.into_u128() < (N as u128 * N as u128)
+        if !Self::assert()
             { None }
         else
         {
             Some(
                 Self
                 {
-                    sudoku: [[[[T::zero(); N]; N]; N]; N],
+                    sudoku: [[[[T::MIN; N]; N]; N]; N],
                     random: Random::new(),
                 }
             )
@@ -63,19 +64,20 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
     }
 
     // pub fn new_with(problem: [[[[T; N]; N]; N]; N]) -> Option<Self>
-    /// Creates a new object of `PlaneSudoku` wrapped by `Some`
-    /// out of problem array.
+    /// Creates a new `PlaneSudoku` instance wrapped in `Some`
+    /// from a 4-dimensional problem array.
     /// 
     /// # Arguments
-    /// - `problem`: is a 4-dimensional array of `T`
-    ///   with the size `N` X `N` X `N` X `N`.
+    /// * `problem` - A 4D array of type `T` with dimensions `N x N x N x N`, 
+    ///   representing the initial state of the Sudoku puzzle.
     /// 
     /// # Returns
-    /// A new object of `PlaneSudoku` wrapped by `Some` if the size is valid.
-    /// `None` if the size is invalid.
+    /// - `Some(Self)` if the size `N^2` is within the representable range 
+    ///   of the underlying type `T` (`N^2 <= T::MAX`).
+    /// - `None` if `N^2` exceeds the maximum value of `T`.
     pub fn new_with(problem: [[[[T; N]; N]; N]; N]) -> Option<Self>
     {
-        if T::MAX.into_u128() < (N as u128 * N as u128)
+        if !Self::assert()
             { None }
         else
         {
@@ -90,24 +92,27 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
     }
 
     // pub fn new_with_<const M: usize>(problem: [[T; M]; M]) -> Option<Self>
-    /// Creates a new object of `PlaneSudoku` wrapped by `Some`
-    /// out of problem array.
+    /// Creates a new `PlaneSudoku` instance from a 2-dimensional problem array.
     /// 
     /// # Arguments
-    /// - `problem`: is a 4-dimensional array of `T`
-    ///   with the size `M` X `M`, where `M` == `N^2`.
+    /// * `problem` - A 2D array of type `T` with dimensions `M x M`.
+    ///   Here, `M` must satisfy the condition `M == N * N`.
     /// 
     /// # Returns
-    /// A new object of `PlaneSudoku` wrapped by `Some` if `M` == `N^2`.
-    /// `None` if `M` != `N^2`.
+    /// - `Some(Self)` if the dimensions of the input array are valid
+    ///   and consistent with the constraint `M == N * N`
+    ///   and the size `M` is within the representable range
+    ///   of the underlying type `T` (`M <= T::MAX`).
+    /// - `None` if the dimensions do not satisfy the required Sudoku 
+    ///   grid constraints or `M` exceeds the maximum value of `T`.
     pub fn new_with_<const M: usize>(problem: [[T; M]; M]) -> Option<Self>
     {
-        if N * N != M || T::MAX.into_u128() < (M as u128)
+        if N * N != M || !Self::assert()
             { return None; }
 
         let mut me = Self
         {
-            sudoku: [[[[T::zero(); N]; N]; N]; N],
+            sudoku: [[[[T::MIN; N]; N]; N]; N],
             random: Random::new(),
         };
         
@@ -118,7 +123,10 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
                 for ro in 0..N
                 {
                     for co in 0..N
-                        { me.sudoku[row][col][ro][co] = problem[row * N + ro][col * N + co]; }
+                    {
+                        let (r, c) = Self::index_into_2D_view(row, col, ro, co);
+                        me.sudoku[row][col][ro][co] = problem[r][c];
+                    }
                 }
             }
         }
@@ -126,26 +134,47 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
     }
 
     // pub fn generate(&mut self, n_holes: usize)
-    /// Generates a sudoku problem with `n_holes` holes (blanks).
+    /// Generates a Sudoku puzzle
+    /// with the specified number of empty cells (`n_holes`).
     /// 
     /// # Arguments
-    /// - `n_holes`: is the number of holes (blanks) in the generated sudoku
-    ///   board.
+    /// * `n_holes` - The number of blanks (holes) to be created in the
+    ///   generated Sudoku board.
     /// 
     /// # Features
-    /// - If `n_holes` is `zero`, the generated sudoku board is
-    ///   a complete solution.
+    /// * **Complete Solution**: If `n_holes` is `0`, the method returns a 
+    ///   fully completed Sudoku board (a valid solution).
+    /// * **Randomness**: Each call generates a unique puzzle based on the
+    ///   internal RNG.
+    /// * **Maximum Capacity**: If `n_holes` exceeds the total number of cells 
+    ///   in the grid, it is treated as the maximum capacity. In this case, 
+    ///   the method returns an entirely empty Sudoku board.
     pub fn generate(&mut self, n_holes: usize)
     {
         self.sudoku = [[[[T::zero(); N]; N]; N]; N];
         self.solve();
-        for _ in 0..n_holes
+        let mut mask = [[[[T::ONE; N]; N]; N]; N];
+        let (mut row, mut col, mut ro, mut co) = (0_usize, 0_usize, 0_usize, 0_usize);
+        for _ in 0..(if n_holes <= N * N {n_holes} else {N * N})
         {
-            let row = self.random.random_under_uint_(N);
-            let col = self.random.random_under_uint_(N);
-            let ro = self.random.random_under_uint_(N);
-            let co = self.random.random_under_uint_(N);
-            self.sudoku[row][col][ro][co] = T::MIN;
+            mask[row][col][ro][co] = T::MIN;
+            (row, col, ro, co) = Self::advance(row, col, ro, co);
+        }
+        self.shuffle_big(&mut mask);
+
+        for row in 0..N
+        {
+            for col in 0..N
+            {
+                for ro in 0..N
+                {
+                    for co in 0..N
+                    {
+                        if mask[row][col][ro][co] == T::MIN
+                            { self.sudoku[row][col][ro][co] = T::MIN; }
+                    }
+                }
+            }
         }
     }
 
@@ -222,10 +251,10 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
         }
         else
         {
-            let left = self.count_left_elements(ro, co);
+            let left = Self::count_left_elements(ro, co);
             for _ in 1..left
             {
-                self.rotate(elem, ro, co);
+                Self::rotate(elem, ro, co);
                 point = elem[ro][co];
                 if self.check(row, col, ro, co, point)
                     { return self.solve_step_by_step(elem, row, col, ro, co); }
@@ -237,7 +266,7 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
     fn fill(&mut self, elem: &mut [[T; N]; N], mut row: usize, mut col: usize, mut ro: usize, mut co: usize, point: T) -> bool
     {
         self.sudoku[row][col][ro][co] = point;
-        (row, col, ro, co) = self.advance(row, col, ro, co);
+        (row, col, ro, co) = Self::advance(row, col, ro, co);
         if row == 0
         {
             true
@@ -268,18 +297,71 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
                 n += T::ONE;
             }
         }
-        self.shuffle(&mut elem);
+        self.shuffle_small(&mut elem);
         elem
     }
 
-    fn shuffle(&mut self, elem: &mut [[T; N]; N])
+    fn shuffle_small(&mut self, elem: &mut [[T; N]; N])
     {
-        for i in 0..N
-            { self.random.shuffle(&mut elem[i]); }
-        self.random.shuffle(elem);
+        let mut list = Vec::with_capacity(N * N);
+        let mut i = 0_usize;
+        for r in 0..N
+        {
+            for c in 0..N
+            {
+                list[i] = elem[r][c];
+                i += 1;
+            }
+        }
+        self.random.shuffle(&mut list);
+        i = 0_usize;
+        for r in 0..N
+        {
+            for c in 0..N
+            {
+                elem[r][c] = list[i];
+                i += 1;
+            }
+        }
     }
 
-    fn advance(&self, mut row: usize, mut col: usize, mut ro: usize, mut co: usize) -> (usize, usize, usize, usize)
+    fn shuffle_big(&mut self, elem: &mut [[[[T; N]; N]; N]; N])
+    {
+        let mut list = Vec::with_capacity(N * N * N * N);
+        let mut i = 0_usize;
+        for row in 0..N
+        {
+            for col in 0..N
+            {
+                for ro in 0..N
+                {
+                    for co in 0..N
+                    {
+                        list[i] = elem[row][col][ro][co];
+                        i += 1;
+                    }
+                }
+            }
+        }
+        self.random.shuffle(&mut list);
+        i = 0_usize;
+        for row in 0..N
+        {
+            for col in 0..N
+            {
+                for ro in 0..N
+                {
+                    for co in 0..N
+                    {
+                        elem[row][col][ro][co] = list[i];
+                        i += 1;
+                    }
+                }
+            }
+        }
+    }
+
+    fn advance(mut row: usize, mut col: usize, mut ro: usize, mut co: usize) -> (usize, usize, usize, usize)
     {
         co += 1;
         if co == N
@@ -304,7 +386,7 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
         (row, col, ro, co)
     }
 
-    fn rotate(&self, elem: &mut [[T; N]; N], ro: usize, co: usize)
+    fn rotate(elem: &mut [[T; N]; N], ro: usize, co: usize)
     {
         let tmp = elem[ro][co];
         for cc in co..N-1
@@ -324,8 +406,32 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
     }
 
     #[inline]
-    fn count_left_elements(&self, ro: usize, co: usize) -> usize
+    fn count_left_elements(ro: usize, co: usize) -> usize
     {
         N - co + (N - 1 - ro) * N
+    }
+
+    // fn get_from_2D(&self, row: usize, col: usize)
+    fn get_from_2D_view(&self, row: usize, col: usize) -> T
+    {
+        self.sudoku[row / N][col / N][row % N][col % N]
+    }
+
+    #[inline]
+    fn index_into_2D_view(row: usize, col: usize, ro: usize, co: usize) -> (usize, usize)
+    {
+        (row * N + ro, col * N + co)
+    }
+    
+    #[inline]
+    fn index_into_4D_view(row: usize, col: usize) -> (usize, usize, usize, usize)
+    {
+        (row / N, col / N, row % N, col % N)
+    }
+
+    #[inline]
+    fn assert() -> bool
+    {
+        T::MAX.into_u128() >= (N as u128 * N as u128)
     }
 }
