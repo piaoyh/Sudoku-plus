@@ -32,17 +32,17 @@
 //! 
 //! # 1. 2D Sudoku
 //! 
-//! - [ ] __PlaneSudoku:__ A generic 2D Sudoku with a (N^2 X N^2) grid.
+//! - [X] __PlaneSudoku:__ A generic 2D Sudoku with a (N^2 X N^2) grid.
 //!   You can define the size by choosing the constant `N`. --
-//!   [PlaneSudoku](https://docs.rs/sudoku-plus/latest/sudoku_plus/plane_sudoku/struct.PlaneSudoku.html.PlaneSudoku)
+//!   [PlaneSudoku](plane_sudoku/struct.PlaneSudoku.html#struct.PlaneSudoku)
 //! 
 //! # 2. 3D Sudoku
 //! 
 //! - [ ] __Multi-layer Sudoku:__ A 3D Sudoku structure with dimensions of 
 //!   (N^2 X N^2 X N^2). The size is determined by the constant `N`.  --
-//!   [MultiLayerSudoku](https://docs.rs/sudoku-plus/latest/sudoku_plus/multi_layer_sudoku/struct.MultiLayerSudoku.html.MultiLayerSudoku)
+//!   [MultiLayerSudoku](multi_layer_sudoku/struct.MultiLayerSudoku.html#struct.MultiLayerSudoku)
 //! - [ ] __Cubic Sudoku:__ A 3D Sudoku structure with dimensions of (N^3 X N^3 X N^3). The size is determined by the constant `N`. --
-//!   [CubicSudoku](https://docs.rs/sudoku-plus/latest/sudoku_plus/cubic_sudoku/struct.CubicSudoku.html.CubicSudoku)
+//!   [CubicSudoku](cubic_sudoku/struct.CubicSudoku.html#struct.CubicSudoku)
 //! 
 //! # 3. Sudoku Elements
 //! 
@@ -52,7 +52,7 @@
 //!   defined for sudoku elements. It is supposed to be implemented by any data
 //!   type that supports cryptocol::number::SmallUInt. It can be removed in the
 //!   future if it is found not necessary. --
-//!   [SudokuElement](https://docs.rs/sudoku-plus/latest/sudoku_plus/sudoku_element/struct.SudokuElement.html.SudokuElement).
+//!   [SudokuElement](sudoku_element/struct.SudokuElement.html#struct.SudokuElement).
 //! 
 //! # Versioning Policy
 //! 
@@ -66,11 +66,6 @@
 //! 
 //! _Note: Version numbers like 0.2.0 indicate progress through the
 //! functionality list, not necessarily a 20% completion of the entire codebase.
-//! 
-//! # Breaking Changes
-//! 
-//! For a detailed history of API changes and migration guides,
-//! please refer to `BreakingChanges.md` for a detailed history of API changes.
 
 /// The `plane_sudoku` module provides the struct `PlaneSudoku`
 /// for 2D plane sudoku.
@@ -92,3 +87,22 @@ pub use plane_sudoku::PlaneSudoku;
 pub use multi_layer_sudoku::MultiLayerSudoku;
 pub use cubic_sudoku::CubicSudoku;
 pub use sudoku_element::SudokuElement;
+
+pub use plane_sudoku::PlaneSudoku_4X4;
+pub use plane_sudoku::PlaneSudoku_9X9;
+pub use plane_sudoku::PlaneSudoku_16X16;
+pub use plane_sudoku::PlaneSudoku_25X25;
+pub use plane_sudoku::PlaneSudoku_36X36;
+pub use plane_sudoku::PlaneSudoku_49X49;
+pub use plane_sudoku::PlaneSudoku_64X64;
+pub use plane_sudoku::PlaneSudoku_81X81;
+pub use plane_sudoku::PlaneSudoku_100X100;
+pub use plane_sudoku::PlaneSudoku_121X121;
+pub use plane_sudoku::PlaneSudoku_144X144;
+pub use plane_sudoku::PlaneSudoku_169X169;
+pub use plane_sudoku::PlaneSudoku_196X196;
+pub use plane_sudoku::PlaneSudoku_225X225;
+pub use plane_sudoku::PlaneSudoku_289X289;
+pub use plane_sudoku::PlaneSudoku_324X324;
+pub use plane_sudoku::PlaneSudoku_361X361;
+pub use plane_sudoku::PlaneSudoku_400X400;

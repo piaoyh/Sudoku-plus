@@ -16,3 +16,12 @@ cryptocol = "0.19.8"
 
 [profile.dev]
 incremental = false
+
+#################################
+[package.metadata.docs.rs]
+cargo-args = ["-Zunstable-options", "-Zrustdoc-scrape-examples"]
+
+
+[[example]]
+name = "plane_sudoku_examples"
+doc-scrape-examples = false
