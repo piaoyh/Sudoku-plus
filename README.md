@@ -1,6 +1,6 @@
 # Sudoku-plus: An Expandable Sudoku Library
 
-`sudoku-plus` is a versatile Rust library designed for generating and solving various Sudoku structures, including __Plane__, __Multi-layer__, and __Cubic__ Sudoku.
+`sudoku-plus` is a versatile Rust library designed for generating and solving various Sudoku structures, including __Plane__, __Multi-layer__, and __Cubic__ Sudokus.
 
 ## Roadmap for Version 1.0
 

@@ -8,6 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 
+
 use cryptocol::number::SmallUInt;
 use cryptocol::random::{ Random, RandGen };
 
@@ -154,8 +155,8 @@ pub type PlaneSudoku_400X400 = PlaneSudoku<u16, 20>;
 /// 
 /// # Generic Constants
 /// - `T`: is supposed to be any data type that supports
-///   cryptocol::number::SmallUInt + Copy + Clone + Eq. At the momnet,
-///   `T` can be one of `u8`, `u16`, `u32`, `u64`, `u128`, and `usize`.
+///   cryptocol::number::SmallUInt. At the momnet, `T` can be one of `u8`,
+///   `u16`, `u32`, `u64`, `u128`, and `usize`.
 ///   In the future, this crate may provide some useful datatypes for `T`
 ///   that can substitute for cryptocol::number::SmallUInt.
 ///   The default type is `u8`.
@@ -163,7 +164,7 @@ pub type PlaneSudoku_400X400 = PlaneSudoku<u16, 20>;
 ///   `N` indicates the size of a sub-square, which is `N` x `N`.
 ///   The sudoku board is composed of `N` rows of `N` columns of sub-squares.
 ///   The size `N^2` should be within the representable range of the underlying
-///   type `T` (`N^2 <= T::MAX`)
+///   type `T` (`N^2 <= T::MAX`).
 ///   So, the size of the sudoku board is N^2 x N x N (= N^2 x N^2).
 ///   For example, if `N` = 3, the size of the sudoku board is 9 x 9.
 ///   The default value of `N` = `3`.
@@ -184,12 +185,12 @@ pub type PlaneSudoku_400X400 = PlaneSudoku<u16, 20>;
 ///   [[[4, 0, 6], [3, 2, 7], [9, 0, 8]], 
 ///    [[9, 2, 3], [6, 1, 8], [4, 7, 5]], 
 ///    [[1, 7, 8], [9, 4, 5], [3, 6, 2]]], 
-///  [[[2, 3, 1], [8, 0, 4], [5, 0, 7]], 
+///   [[[2, 3, 1], [8, 0, 4], [5, 0, 7]], 
 ///    [[6, 8, 4], [5, 7, 9], [2, 3, 1]], 
 ///    [[7, 9, 5], [2, 3, 1], [6, 8, 4]]], 
-///  [[[8, 1, 0], [4, 0, 6], [7, 0, 3]], 
-///   [[5, 6, 2], [7, 8, 3], [1, 4, 9]], 
-///   [[3, 0, 7], [1, 0, 2], [8, 0, 6]]]];
+///   [[[8, 1, 0], [4, 0, 6], [7, 0, 3]], 
+///    [[5, 6, 2], [7, 8, 3], [1, 4, 9]], 
+///    [[3, 0, 7], [1, 0, 2], [8, 0, 6]]]];
 /// let sudoku = PlaneSudoku_9X9::new_with(problem);
 /// assert!(sudoku.is_some());
 /// ```
@@ -242,6 +243,36 @@ pub type PlaneSudoku_400X400 = PlaneSudoku<u16, 20>;
 /// This will create a Sudoku puzzle with 40 holes, which is generally
 /// considered to be of medium difficulty. You can adjust the number of
 /// holes to create puzzles of varying difficulty levels.
+/// 
+/// # Type Aliases
+/// There are predefined type aliases for common Sudoku sizes,
+/// such as `PlaneSudoku_9X9` for a standard 9x9 Sudoku.
+/// You can use these type aliases to easily create Sudoku instances of the
+/// desired size without having to specify the generic parameters each time.
+/// The following type aliases are available:
+/// - `PlaneSudoku_4X4` for a 4x4 Sudoku (N=2)
+/// - `PlaneSudoku_9X9` for a 9x9 Sudoku (N=3)
+/// - `PlaneSudoku_16X16` for a 16x16 Sudoku (N=4)
+/// - `PlaneSudoku_25X25` for a 25x25 Sudoku (N=5)
+/// - `PlaneSudoku_36X36` for a 36x36 Sudoku (N=6)
+/// - `PlaneSudoku_49X49` for a 49x49 Sudoku (N=7)
+/// - `PlaneSudoku_64X64` for a 64x64 Sudoku (N=8)
+/// - `PlaneSudoku_81X81` for an 81x81 Sudoku (N=9)
+/// - `PlaneSudoku_100X100` for a 100x100 Sudoku (N=10)
+/// - `PlaneSudoku_121X121` for a 121x121 Sudoku (N=11)
+/// - `PlaneSudoku_144X144` for a 144x144 Sudoku (N=12)
+/// - `PlaneSudoku_169X169` for a 169x169 Sudoku (N=13)
+/// - `PlaneSudoku_196X196` for a 196x196 Sudoku (N=14)
+/// - `PlaneSudoku_225X225` for a 225x225 Sudoku (N=15)
+/// - `PlaneSudoku_289X289` for a 289x289 Sudoku (N=16)
+/// - `PlaneSudoku_324X324` for a 324x324 Sudoku (N=18)
+/// - `PlaneSudoku_361X361` for a 361x361 Sudoku (N=19)
+/// - `PlaneSudoku_400X400` for a 400x400 Sudoku (N=20)
+/// 
+/// You can use these type aliases to create Sudoku instances of the desired
+/// size without having to specify the generic parameters each time.
+/// For example, to create a standard 9x9 Sudoku,
+/// you can simply use `PlaneSudoku_9X9::new()`.
 pub struct PlaneSudoku<T: SmallUInt = u8, const N: usize = 3>
 {
     sudoku: [[[[T; N]; N]; N]; N],
@@ -698,6 +729,19 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
             }
         }
 
+        for rrcc in 0..N
+        {
+            if rrcc == row || rrcc == col
+                { continue; }
+
+            for rc in 0..N
+            {
+                if point == self.sudoku[rrcc][col][rc][co]
+                || point == self.sudoku[row][rrcc][ro][rc]
+                    { return false; }
+            }
+        }
+/*
         for cc in 0..N
         {
             if cc == col
@@ -719,6 +763,7 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
                     { return false; } 
             }
         }
+*/
         true
     }
 
@@ -737,18 +782,19 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
                         self.candidate[row][col][ro][co] = candidate;
                     }
                 }
-                self.shuffle_small(row, col);
+                self.shuffle_candidates(row, col);
             }
         }
     }
 
-    fn shuffle_small(&mut self, row: usize, col: usize)
+    fn shuffle_candidates(&mut self, row: usize, col: usize)
     {
         let (mut ro, mut co) = (N - 1, N - 1);
         while (ro, co) != (0, 0)
         {
             let r = self.random.random_under_uint_(ro + 1);
             let c = self.random.random_under_uint_(co + 1);
+
             let tmp = self.candidate[row][col][ro][co];
             self.candidate[row][col][ro][co] = self.candidate[row][col][r][c];
             self.candidate[row][col][r][c] = tmp;
@@ -765,6 +811,7 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
             let cc = self.random.random_under_uint_(col + 1);
             let r = self.random.random_under_uint_(ro + 1);
             let c = self.random.random_under_uint_(co + 1);
+
             let tmp = elem[row][col][ro][co];
             elem[row][col][ro][co] = elem[rr][cc][r][c];
             elem[rr][cc][r][c] = tmp;
@@ -772,86 +819,66 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
         }
     }
 
-    #[allow(unused)]
-    fn advance_small(mut ro: usize, mut co: usize) -> (usize, usize)
+    fn carry(mut high: usize, mut low: usize) -> (usize, usize)
     {
-        (ro, co) = (ro % N, co % N);
-        co += 1;
-        if co == N
+        if low == N
         {
-            co = 0;
-            ro += 1;
+            low = 0;
+            high += 1;
         }
-        (ro, co)
+        (high, low)
+    }
+
+    #[allow(unused)]
+    fn advance_small(ro: usize, co: usize) -> (usize, usize)
+    {
+        Self::carry(ro % N, (co % N) + 1)
     }
 
     fn advance_big(mut row: usize, mut col: usize, mut ro: usize, mut co: usize) -> (usize, usize, usize, usize)
     {
-        (row, col, ro, co) = (row % N, col % N, ro % N, co % N);
-        co += 1;
-        if co == N
-        {
-            co = 0;
-            ro += 1;
-        }
-        if ro == N
-        {
-            ro = 0;
-            col += 1;
-        }
-        if col == N
-        {
-            col = 0;
-            row += 1;
-        }
+        (ro, co) = Self::advance_small(ro % N, co % N);
+        (col, ro) = Self::carry(col % N, ro);
+        (row, col) = Self::carry(row % N, col);
         (row, col, ro, co)
     }
 
-    fn retreat_small(mut ro: usize, mut co: usize) -> (usize, usize)
+    fn borrow(mut high: usize, mut low: usize) -> (usize, usize)
     {
-        (ro, co) = (ro % N, co % N);
-        if co == 0
+        if low == N
         {
-            co = N - 1;
-            if ro == 0
-            {
-                ro = N;
-                co -= 1;
-            }
+            low = N - 1;
+            if high == 0
+                { high = N; }
             else
-                { ro -= 1; }
+                { high -= 1; }
         }
-        else
-            { co -= 1; }
+        (high, low)
+    }
 
-        (ro, co)
+    fn retreat_small(ro: usize, mut co: usize) -> (usize, usize)
+    {
+        co = co % N;
+
+        if co != 0
+            { co -= 1; }
+        else
+            { co = N; }
+        Self::borrow(ro % N, co)
     }
 
     fn retreat_big(mut row: usize, mut col: usize, mut ro: usize, mut co: usize) -> (usize, usize, usize, usize)
     {
-        (row, col, ro, co) = (row % N, col % N, ro % N, co % N);
-        if co == 0
-        {
-            co = N - 1;
-            if ro == 0
-            {
-                ro = N - 1;
-                if col == 0
-                {
-                    col = N;
-                    if row == 0
-                        { row = N; }
-                    else
-                        { row -= 1; }
-                }
-                col -= 1;
-            }
-            else
-                { ro -= 1; }
-        }
-        else
-            { co -= 1; }
+        co = co % N;
 
+        if co != 0
+            { co -= 1; }
+        else
+            { co = N; }
+        (ro, co) = Self::borrow(ro % N, co);
+        (col, ro) = Self::borrow(col % N, ro);
+        (row, col) = Self::borrow(row % N, col);
+        
         (row, col, ro, co)
     }
 

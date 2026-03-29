@@ -10,7 +10,7 @@ checksum = "dccafbe1899e43ba0d38f4cde15e76aebc8b8c30c42a6a359540c91e7608b028"
 
 [[package]]
 name = "sudoku-plus"
-version = "0.1.2"
+version = "0.1.3"
 dependencies = [
  "cryptocol",
 ]
