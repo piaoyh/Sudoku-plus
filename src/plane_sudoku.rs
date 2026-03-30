@@ -18,133 +18,133 @@ use cryptocol::random::{ Random, RandGen };
 /// This configuration uses `N = 2`, resulting in a total grid size of 4x4 
 /// (2^2 x 2^2).
 #[allow(non_camel_case_types)]
-pub type PlaneSudoku_4X4 = PlaneSudoku<u8, 2>;
+pub type PlaneSudoku_4x4 = PlaneSudoku<u8, 2>;
 
 /// A type alias for a 9x9 `PlaneSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 3`, resulting in a total grid size of 9x9 
 /// (3^2 x 3^2).
 #[allow(non_camel_case_types)]
-pub type PlaneSudoku_9X9 = PlaneSudoku<u8, 3>;
+pub type PlaneSudoku_9x9 = PlaneSudoku<u8, 3>;
 
 /// A type alias for a 16x16 `PlaneSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 4`, resulting in a total grid size of 16x16 
 /// (4^2 x 4^2).
 #[allow(non_camel_case_types)]
-pub type PlaneSudoku_16X16 = PlaneSudoku<u8, 4>;
+pub type PlaneSudoku_16x16 = PlaneSudoku<u8, 4>;
 
 /// A type alias for a 25x25 `PlaneSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 5`, resulting in a total grid size of 25x25 
 /// (5^2 x 5^2).
 #[allow(non_camel_case_types)]
-pub type PlaneSudoku_25X25 = PlaneSudoku<u8, 5>;
+pub type PlaneSudoku_25x25 = PlaneSudoku<u8, 5>;
 
 /// A type alias for a 36x36 `PlaneSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 6`, resulting in a total grid size of 36x36 
 /// (6^2 x 6^2).
 #[allow(non_camel_case_types)]
-pub type PlaneSudoku_36X36 = PlaneSudoku<u8, 6>;
+pub type PlaneSudoku_36x36 = PlaneSudoku<u8, 6>;
 
 /// A type alias for a 49x49 `PlaneSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 7`, resulting in a total grid size of 49x49 
 /// (7^2 x 7^2).
 #[allow(non_camel_case_types)]
-pub type PlaneSudoku_49X49 = PlaneSudoku<u8, 7>;
+pub type PlaneSudoku_49x49 = PlaneSudoku<u8, 7>;
 
 /// A type alias for a 64x64 `PlaneSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 8`, resulting in a total grid size of 64x64 
 /// (8^2 x 8^2).
 #[allow(non_camel_case_types)]
-pub type PlaneSudoku_64X64 = PlaneSudoku<u8, 8>;
+pub type PlaneSudoku_64x64 = PlaneSudoku<u8, 8>;
 
 /// A type alias for an 81x81 `PlaneSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 9`, resulting in a total grid size of 81x81 
 /// (9^2 x 9^2).
 #[allow(non_camel_case_types)]
-pub type PlaneSudoku_81X81 = PlaneSudoku<u8, 9>;
+pub type PlaneSudoku_81x81 = PlaneSudoku<u8, 9>;
 
 /// A type alias for a 100x100 `PlaneSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 10`, resulting in a total grid size of 100x100 
 /// (10^2 x 10^2).
 #[allow(non_camel_case_types)]
-pub type PlaneSudoku_100X100 = PlaneSudoku<u8, 10>;
+pub type PlaneSudoku_100x100 = PlaneSudoku<u8, 10>;
 
 /// A type alias for a 121x121 `PlaneSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 11`, resulting in a total grid size of 121x121 
 /// (11^2 x 11^2).
 #[allow(non_camel_case_types)]
-pub type PlaneSudoku_121X121 = PlaneSudoku<u8, 11>;
+pub type PlaneSudoku_121x121 = PlaneSudoku<u8, 11>;
 
 /// A type alias for a 144x144 `PlaneSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 12`, resulting in a total grid size of 144x144 
 /// (12^2 x 12^2).
 #[allow(non_camel_case_types)]
-pub type PlaneSudoku_144X144 = PlaneSudoku<u8, 12>;
+pub type PlaneSudoku_144x144 = PlaneSudoku<u8, 12>;
 
 /// A type alias for a 169x169 `PlaneSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 13`, resulting in a total grid size of 169x169 
 /// (13^2 x 13^2).
 #[allow(non_camel_case_types)]
-pub type PlaneSudoku_169X169 = PlaneSudoku<u8, 13>;
+pub type PlaneSudoku_169x169 = PlaneSudoku<u8, 13>;
 
 /// A type alias for a 196x196 `PlaneSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 14`, resulting in a total grid size of 196x196 
 /// (14^2 x 14^2).
 #[allow(non_camel_case_types)]
-pub type PlaneSudoku_196X196 = PlaneSudoku<u8, 14>;
+pub type PlaneSudoku_196x196 = PlaneSudoku<u8, 14>;
 
 /// A type alias for a 225x225 `PlaneSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 15`, resulting in a total grid size of 225x225 
 /// (15^2 x 15^2).
 #[allow(non_camel_case_types)]
-pub type PlaneSudoku_225X225 = PlaneSudoku<u8, 15>;
+pub type PlaneSudoku_225x225 = PlaneSudoku<u8, 15>;
 
 /// A type alias for a 256x256 `PlaneSudoku` using `u16` as the underlying type.
 /// 
 /// This configuration uses `N = 16`, resulting in a total grid size of 256x256 
 /// (16^2 x 16^2).
 #[allow(non_camel_case_types)]
-pub type PlaneSudoku_256X256 = PlaneSudoku<u16, 16>;
+pub type PlaneSudoku_256x256 = PlaneSudoku<u16, 16>;
 
 /// A type alias for a 289x289 `PlaneSudoku` using `u16` as the underlying type.
 /// 
 /// This configuration uses `N = 17`, resulting in a total grid size of 289x289 
 /// (17^2 x 17^2).
 #[allow(non_camel_case_types)]
-pub type PlaneSudoku_289X289 = PlaneSudoku<u16, 17>;
+pub type PlaneSudoku_289x289 = PlaneSudoku<u16, 17>;
 
 /// A type alias for a 324x324 `PlaneSudoku` using `u16` as the underlying type.
 /// 
 /// This configuration uses `N = 18`, resulting in a total grid size of 324x324 
 /// (18^2 x 18^2).
 #[allow(non_camel_case_types)]
-pub type PlaneSudoku_324X324 = PlaneSudoku<u16, 18>;
+pub type PlaneSudoku_324x324 = PlaneSudoku<u16, 18>;
 
 /// A type alias for a 361x361 `PlaneSudoku` using `u16` as the underlying type.
 /// 
 /// This configuration uses `N = 19`, resulting in a total grid size of 361x361 
 /// (19^2 x 19^2).
 #[allow(non_camel_case_types)]
-pub type PlaneSudoku_361X361 = PlaneSudoku<u16, 19>;
+pub type PlaneSudoku_361x361 = PlaneSudoku<u16, 19>;
 
 /// A type alias for a 400x400 `PlaneSudoku` using `u16` as the underlying type.
 /// 
 /// This configuration uses `N = 20`, resulting in a total grid size of 400x400 
 /// (20^2 x 20^2).
 #[allow(non_camel_case_types)]
-pub type PlaneSudoku_400X400 = PlaneSudoku<u16, 20>;
+pub type PlaneSudoku_400x400 = PlaneSudoku<u16, 20>;
 
 
 /// # Introduction
@@ -172,15 +172,15 @@ pub type PlaneSudoku_400X400 = PlaneSudoku<u16, 20>;
 /// # Quick Start
 /// To create a new `PlaneSudoku` instance, you can use the `new` method:
 /// ```
-/// use sudoku_plus::PlaneSudoku_9X9;
-/// let sudoku = PlaneSudoku_9X9::new();
+/// use sudoku_plus::PlaneSudoku_9x9;
+/// let sudoku = PlaneSudoku_9x9::new();
 /// assert!(sudoku.is_some());
 /// ```
 /// 
 /// You can also initialize a `PlaneSudoku` with a specific problem pattern
 /// using the `new_with` method:
 /// ```
-/// use sudoku_plus::PlaneSudoku_9X9;
+/// use sudoku_plus::PlaneSudoku_9x9;
 /// let problem: [[[[u8; 3]; 3]; 3]; 3] = [
 ///   [[[4, 0, 6], [3, 2, 7], [9, 0, 8]], 
 ///    [[9, 2, 3], [6, 1, 8], [4, 7, 5]], 
@@ -191,14 +191,14 @@ pub type PlaneSudoku_400X400 = PlaneSudoku<u16, 20>;
 ///   [[[8, 1, 0], [4, 0, 6], [7, 0, 3]], 
 ///    [[5, 6, 2], [7, 8, 3], [1, 4, 9]], 
 ///    [[3, 0, 7], [1, 0, 2], [8, 0, 6]]]];
-/// let sudoku = PlaneSudoku_9X9::new_with(problem);
+/// let sudoku = PlaneSudoku_9x9::new_with(problem);
 /// assert!(sudoku.is_some());
 /// ```
 /// 
 /// You can also initialize a `PlaneSudoku` with a 2D problem pattern
 /// using the `new_with_2d` method:
 /// ```
-/// use sudoku_plus::PlaneSudoku_9X9;
+/// use sudoku_plus::PlaneSudoku_9x9;
 /// let problem: [[u8; 9]; 9] = [
 ///   [4, 0, 6, 3, 2, 7, 9, 0, 8],
 ///   [9, 2, 3, 6, 1, 8, 4, 7, 5],
@@ -209,15 +209,15 @@ pub type PlaneSudoku_400X400 = PlaneSudoku<u16, 20>;
 ///   [8, 1, 0, 4, 0, 6, 7, 0, 3],
 ///   [5, 6, 2, 7, 8, 3, 1, 4, 9],
 ///   [3, 0, 7, 1, 0, 2, 8, 0, 6]];
-/// let sudoku = PlaneSudoku_9X9::new_with_2d(problem);
+/// let sudoku = PlaneSudoku_9x9::new_with_2d(problem);
 /// assert!(sudoku.is_some());
 /// ```
 /// 
 /// You can access the values in the 2D view of the Sudoku board
 /// using the `get_from_2d_view` method:
 /// ```
-/// use sudoku_plus::PlaneSudoku_9X9;
-/// let mut sudoku = PlaneSudoku_9X9::new().unwrap();
+/// use sudoku_plus::PlaneSudoku_9x9;
+/// let mut sudoku = PlaneSudoku_9x9::new().unwrap();
 /// sudoku.generate(40);
 /// for row in 0..9
 /// {
@@ -236,8 +236,8 @@ pub type PlaneSudoku_400X400 = PlaneSudoku<u16, 20>;
 /// You can generate a Sudoku puzzle with a specific number of holes
 /// (empty cells) using the `generate` method:
 /// ```
-/// use sudoku_plus::PlaneSudoku_9X9;
-/// let mut sudoku = PlaneSudoku_9X9::new().unwrap();
+/// use sudoku_plus::PlaneSudoku_9x9;
+/// let mut sudoku = PlaneSudoku_9x9::new().unwrap();
 /// sudoku.generate(40);
 /// ```
 /// This will create a Sudoku puzzle with 40 holes, which is generally
@@ -250,29 +250,29 @@ pub type PlaneSudoku_400X400 = PlaneSudoku<u16, 20>;
 /// You can use these type aliases to easily create Sudoku instances of the
 /// desired size without having to specify the generic parameters each time.
 /// The following type aliases are available:
-/// - `PlaneSudoku_4X4` for a 4x4 Sudoku (N=2)
-/// - `PlaneSudoku_9X9` for a 9x9 Sudoku (N=3)
-/// - `PlaneSudoku_16X16` for a 16x16 Sudoku (N=4)
-/// - `PlaneSudoku_25X25` for a 25x25 Sudoku (N=5)
-/// - `PlaneSudoku_36X36` for a 36x36 Sudoku (N=6)
-/// - `PlaneSudoku_49X49` for a 49x49 Sudoku (N=7)
-/// - `PlaneSudoku_64X64` for a 64x64 Sudoku (N=8)
-/// - `PlaneSudoku_81X81` for an 81x81 Sudoku (N=9)
-/// - `PlaneSudoku_100X100` for a 100x100 Sudoku (N=10)
-/// - `PlaneSudoku_121X121` for a 121x121 Sudoku (N=11)
-/// - `PlaneSudoku_144X144` for a 144x144 Sudoku (N=12)
-/// - `PlaneSudoku_169X169` for a 169x169 Sudoku (N=13)
-/// - `PlaneSudoku_196X196` for a 196x196 Sudoku (N=14)
-/// - `PlaneSudoku_225X225` for a 225x225 Sudoku (N=15)
-/// - `PlaneSudoku_289X289` for a 289x289 Sudoku (N=16)
-/// - `PlaneSudoku_324X324` for a 324x324 Sudoku (N=18)
-/// - `PlaneSudoku_361X361` for a 361x361 Sudoku (N=19)
-/// - `PlaneSudoku_400X400` for a 400x400 Sudoku (N=20)
+/// - `PlaneSudoku_4x4` for a 4x4 Sudoku (N=2)
+/// - `PlaneSudoku_9x9` for a 9x9 Sudoku (N=3)
+/// - `PlaneSudoku_16x16` for a 16x16 Sudoku (N=4)
+/// - `PlaneSudoku_25x25` for a 25x25 Sudoku (N=5)
+/// - `PlaneSudoku_36x36` for a 36x36 Sudoku (N=6)
+/// - `PlaneSudoku_49x49` for a 49x49 Sudoku (N=7)
+/// - `PlaneSudoku_64x64` for a 64x64 Sudoku (N=8)
+/// - `PlaneSudoku_81x81` for an 81x81 Sudoku (N=9)
+/// - `PlaneSudoku_100x100` for a 100x100 Sudoku (N=10)
+/// - `PlaneSudoku_121x121` for a 121x121 Sudoku (N=11)
+/// - `PlaneSudoku_144x144` for a 144x144 Sudoku (N=12)
+/// - `PlaneSudoku_169x169` for a 169x169 Sudoku (N=13)
+/// - `PlaneSudoku_196x196` for a 196x196 Sudoku (N=14)
+/// - `PlaneSudoku_225x225` for a 225x225 Sudoku (N=15)
+/// - `PlaneSudoku_289x289` for a 289x289 Sudoku (N=16)
+/// - `PlaneSudoku_324x324` for a 324x324 Sudoku (N=18)
+/// - `PlaneSudoku_361x361` for a 361x361 Sudoku (N=19)
+/// - `PlaneSudoku_400x400` for a 400x400 Sudoku (N=20)
 /// 
 /// You can use these type aliases to create Sudoku instances of the desired
 /// size without having to specify the generic parameters each time.
 /// For example, to create a standard 9x9 Sudoku,
-/// you can simply use `PlaneSudoku_9X9::new()`.
+/// you can simply use `PlaneSudoku_9x9::new()`.
 pub struct PlaneSudoku<T: SmallUInt = u8, const N: usize = 3>
 {
     sudoku: [[[[T; N]; N]; N]; N],
@@ -294,8 +294,8 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
     /// 
     /// # Example 1 for Basic 9x9 Sudoku initialization (N=3)
     /// ```
-    /// use sudoku_plus::PlaneSudoku_9X9;
-    /// let sudoku = PlaneSudoku_9X9::new();
+    /// use sudoku_plus::PlaneSudoku_9x9;
+    /// let sudoku = PlaneSudoku_9x9::new();
     /// assert!(sudoku.is_some());
     /// ```
     /// 
@@ -355,7 +355,7 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
     /// 
     /// # Example 1 for Initializing with a specific puzzle pattern
     /// ```
-    /// use sudoku_plus::PlaneSudoku_9X9;
+    /// use sudoku_plus::PlaneSudoku_9x9;
     /// let problem: [[[[u8; 3]; 3]; 3]; 3] = [
     ///     [[[4, 0, 6], [3, 2, 7], [9, 0, 8]], 
     ///      [[9, 2, 3], [6, 1, 8], [4, 7, 5]], 
@@ -366,19 +366,19 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
     ///     [[[8, 1, 0], [4, 0, 6], [7, 0, 3]], 
     ///      [[5, 6, 2], [7, 8, 3], [1, 4, 9]], 
     ///      [[3, 0, 7], [1, 0, 2], [8, 0, 6]]]];
-    /// let sudoku = PlaneSudoku_9X9::new_with(problem);
+    /// let sudoku = PlaneSudoku_9x9::new_with(problem);
     /// assert!(sudoku.is_some());
     /// ```
     /// 
     /// # Example 2 for Error handling for invalid input data
     /// ```
-    /// use sudoku_plus::PlaneSudoku_4X4;
+    /// use sudoku_plus::PlaneSudoku_4x4;
     /// let problem: [[[[u8; 2]; 2]; 2]; 2] = [
     ///     [[[1, 0], [0, 2]],
     ///      [[0, 0], [0, 0]]],
     ///     [[[0, 0], [0, 0]],
     ///      [[0, 0], [3, 4]]]];
-    /// let sudoku = PlaneSudoku_4X4::new_with(problem);
+    /// let sudoku = PlaneSudoku_4x4::new_with(problem);
     /// match sudoku
     /// {
     ///     Some(_) => println!("Valid puzzle loaded"),
@@ -426,7 +426,7 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
     /// 
     /// # Example 1 for Initializing with a specific puzzle pattern
     /// ```
-    /// use sudoku_plus::PlaneSudoku_9X9;
+    /// use sudoku_plus::PlaneSudoku_9x9;
     /// let problem: [[u8; 9]; 9] = [
     ///     [4, 0, 6, 3, 2, 7, 9, 0, 8], 
     ///     [9, 2, 3, 6, 1, 8, 4, 7, 5], 
@@ -437,19 +437,19 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
     ///     [8, 1, 0, 4, 0, 6, 7, 0, 3], 
     ///     [5, 6, 2, 7, 8, 3, 1, 4, 9], 
     ///     [3, 0, 7, 1, 0, 2, 8, 0, 6]];
-    /// let sudoku = PlaneSudoku_9X9::new_with(problem);
+    /// let sudoku = PlaneSudoku_9x9::new_with(problem);
     /// assert!(sudoku.is_some());
     /// ```
     /// 
     /// # Example 2 for Error handling for invalid input data
     /// ```
-    /// use sudoku_plus::PlaneSudoku_4X4;
+    /// use sudoku_plus::PlaneSudoku_4x4;
     /// let problem: [[u8; 4]; 4] = [
     ///     [1, 0, 0, 2],
     ///     [0, 0, 0, 0],
     ///     [0, 0, 0, 0],
     ///     [0, 0, 3, 4]];
-    /// let sudoku = PlaneSudoku_4X4::new_with(problem);
+    /// let sudoku = PlaneSudoku_4x4::new_with(problem);
     /// match sudoku
     /// {
     ///     Some(_) => println!("Valid puzzle loaded"),
@@ -501,8 +501,8 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
     /// 
     /// # Example for Accessing values in the 2D view
     /// ```
-    /// use sudoku_plus::PlaneSudoku_9X9;
-    /// let mut sudoku = PlaneSudoku_9X9::new().unwrap();
+    /// use sudoku_plus::PlaneSudoku_9x9;
+    /// let mut sudoku = PlaneSudoku_9x9::new().unwrap();
     /// sudoku.generate(40);
     /// for row in 0..9
     /// {
@@ -542,8 +542,8 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
     /// 
     /// # Example 1 for Generating a puzzle with a specific difficulty (40 holes)
     /// ```
-    /// use sudoku_plus::PlaneSudoku_9X9;
-    /// let mut sudoku = PlaneSudoku_9X9::new().unwrap();
+    /// use sudoku_plus::PlaneSudoku_9x9;
+    /// let mut sudoku = PlaneSudoku_9x9::new().unwrap();
     /// sudoku.generate(40);
     /// for row in 0..9
     /// {
@@ -561,8 +561,8 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
     ///
     /// # Example 2 for Generating a fully solved board (0 holes)
     /// ```
-    /// use sudoku_plus::PlaneSudoku_16X16;
-    /// let mut sudoku = PlaneSudoku_16X16::new().unwrap();
+    /// use sudoku_plus::PlaneSudoku_16x16;
+    /// let mut sudoku = PlaneSudoku_16x16::new().unwrap();
     /// sudoku.generate(0);
     /// for row in 0..16
     /// {
@@ -580,8 +580,8 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
     ///
     /// # Example 3 for Handling oversized n_holes (results in an empty board)
     /// ```
-    /// use sudoku_plus::PlaneSudoku_4X4;
-    /// let mut sudoku = PlaneSudoku_4X4::new().unwrap();
+    /// use sudoku_plus::PlaneSudoku_4x4;
+    /// let mut sudoku = PlaneSudoku_4x4::new().unwrap();
     /// sudoku.generate(20); // 4x4 grid has 16 cells, so this will result in an empty board
     /// for row in 0..4
     /// {
@@ -639,8 +639,8 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
     /// 
     /// # Example 1 for Solving a standard 9x9 Sudoku puzzle
     /// ```
-    /// use sudoku_plus::PlaneSudoku_9X9;
-    /// let mut sudoku = PlaneSudoku_9X9::new().unwrap();
+    /// use sudoku_plus::PlaneSudoku_9x9;
+    /// let mut sudoku = PlaneSudoku_9x9::new().unwrap();
     /// sudoku.generate(40); // Generate a puzzle with 40 holes
     /// let success = sudoku.solve();
     /// if success
@@ -652,22 +652,22 @@ impl<T: SmallUInt, const N: usize> PlaneSudoku<T, N>
     /// 
     /// # Example 2 for Verifying a solution for a small 4x4 grid (N=2)
     /// ```
-    /// use sudoku_plus::PlaneSudoku_4X4;
-    /// let mut sudoku = PlaneSudoku_4X4::new().unwrap();
+    /// use sudoku_plus::PlaneSudoku_4x4;
+    /// let mut sudoku = PlaneSudoku_4x4::new().unwrap();
     /// sudoku.generate(7); // Generate a puzzle with 7 holes, which should be solvable
     /// assert!(sudoku.solve(), "4x4 puzzles generated this way should be solvable");
     /// ```
     /// 
     /// # Example 3 for Handling an unsolvable custom puzzle
     /// ```
-    /// use sudoku_plus::PlaneSudoku_4X4;
+    /// use sudoku_plus::PlaneSudoku_4x4;
     /// let mut problem: [[u8; 4]; 4] = [
     ///     // Set conflicting values in the same row/column/block
     ///     [1, 0, 0, 3],
     ///     [0, 0, 2, 0],
     ///     [0, 2, 0, 0],
     ///     [0, 0, 3, 4]];
-    /// let mut sudoku = PlaneSudoku_4X4::new_with_2d(problem).unwrap();
+    /// let mut sudoku = PlaneSudoku_4x4::new_with_2d(problem).unwrap();
     /// let success = sudoku.solve();   // Should return false for invalid puzzle states
     /// assert!(!success, "This puzzle should be unsolvable due to conflicting values");
     /// ```

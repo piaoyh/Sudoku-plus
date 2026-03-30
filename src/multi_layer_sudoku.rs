@@ -17,149 +17,153 @@ use cryptocol::random::{ Random, RandGen };
 /// This configuration uses `N = 2`, resulting in a total grid size of 4x4x4 
 /// (2^2 x 2^2 x 2^2).
 #[allow(non_camel_case_types)]
-pub type MultiLayerSudoku_4X4X4 = MultiLayerSudoku<u8, 2>;
+pub type MultiLayerSudoku_4x4x4 = MultiLayerSudoku<u8, 2>;
 
 /// A type alias for a 9x9x9 `MultiLayerSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 3`, resulting in a total grid size of 9x9x9 
 /// (3^2 x 3^2 x 3^2).
 #[allow(non_camel_case_types)]
-pub type MultiLayerSudoku_9X9X9 = MultiLayerSudoku<u8, 3>;
+pub type MultiLayerSudoku_9x9x9 = MultiLayerSudoku<u8, 3>;
 
 /// A type alias for a 16x16x16 `MultiLayerSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 4`, resulting in a total grid size of 16x16x16 
 /// (4^2 x 4^2 x 4^2).
 #[allow(non_camel_case_types)]
-pub type MultiLayerSudoku_16X16X16 = MultiLayerSudoku<u8, 4>;
+pub type MultiLayerSudoku_16x16x16 = MultiLayerSudoku<u8, 4>;
 
 /// A type alias for a 25x25x25 `MultiLayerSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 5`, resulting in a total grid size of 25x25x25 
 /// (5^2 x 5^2 x 5^2).
 #[allow(non_camel_case_types)]
-pub type MultiLayerSudoku_25X25X25 = MultiLayerSudoku<u8, 5>;
+pub type MultiLayerSudoku_25x25x25 = MultiLayerSudoku<u8, 5>;
 
 /// A type alias for a 36x36x36 `MultiLayerSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 6`, resulting in a total grid size of 36x36x36 
 /// (6^2 x 6^2 x 6^2).
 #[allow(non_camel_case_types)]
-pub type MultiLayerSudoku_36X36X36 = MultiLayerSudoku<u8, 6>;
+pub type MultiLayerSudoku_36x36x36 = MultiLayerSudoku<u8, 6>;
 
 /// A type alias for a 49x49x49 `MultiLayerSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 7`, resulting in a total grid size of 49x49x49 
 /// (7^2 x 7^2 x 7^2).
 #[allow(non_camel_case_types)]
-pub type MultiLayerSudoku_49X49X49 = MultiLayerSudoku<u8, 7>;
+pub type MultiLayerSudoku_49x49x49 = MultiLayerSudoku<u8, 7>;
 
 /// A type alias for a 64x64x64 `MultiLayerSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 8`, resulting in a total grid size of 64x64x64 
 /// (8^2 x 8^2 x 8^2).
 #[allow(non_camel_case_types)]
-pub type MultiLayerSudoku_64X64X64 = MultiLayerSudoku<u8, 8>;
+pub type MultiLayerSudoku_64x64x64 = MultiLayerSudoku<u8, 8>;
 
 /// A type alias for an 81x81x81 `MultiLayerSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 9`, resulting in a total grid size of 81x81x81 
 /// (9^2 x 9^2 x 9^2).
 #[allow(non_camel_case_types)]
-pub type MultiLayerSudoku_81X81X81 = MultiLayerSudoku<u8, 9>;
+pub type MultiLayerSudoku_81x81x81 = MultiLayerSudoku<u8, 9>;
 
 /// A type alias for a 100x100x100 `MultiLayerSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 10`, resulting in a total grid size of 100x100x100 
 /// (10^2 x 10^2 x 10^2).
 #[allow(non_camel_case_types)]
-pub type MultiLayerSudoku_100X100X100 = MultiLayerSudoku<u8, 10>;
+pub type MultiLayerSudoku_100x100x100 = MultiLayerSudoku<u8, 10>;
 
 /// A type alias for a 121x121x121 `MultiLayerSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 11`, resulting in a total grid size of 121x121x121
 /// (11^2 x 11^2 x 11^2).
 #[allow(non_camel_case_types)]
-pub type MultiLayerSudoku_121X121X121 = MultiLayerSudoku<u8, 11>;
+pub type MultiLayerSudoku_121x121x121 = MultiLayerSudoku<u8, 11>;
 
 /// A type alias for a 144x144x144 `MultiLayerSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 12`, resulting in a total grid size of 144x144x144
 /// (12^2 x 12^2 x 12^2).
 #[allow(non_camel_case_types)]
-pub type MultiLayerSudoku_144X144X144 = MultiLayerSudoku<u8, 12>;
+pub type MultiLayerSudoku_144x144x144 = MultiLayerSudoku<u8, 12>;
 
 /// A type alias for a 169x169x169 `MultiLayerSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 13`, resulting in a total grid size of 169x169x169
 /// (13^2 x 13^2 x 13^2).
 #[allow(non_camel_case_types)]
-pub type MultiLayerSudoku_169X169X169 = MultiLayerSudoku<u8, 13>;
+pub type MultiLayerSudoku_169x169x169 = MultiLayerSudoku<u8, 13>;
 
 /// A type alias for a 196x196x196 `MultiLayerSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 14`, resulting in a total grid size of 196x196x196
 /// (14^2 x 14^2 x 14^2).
 #[allow(non_camel_case_types)]
-pub type MultiLayerSudoku_196X196X196 = MultiLayerSudoku<u8, 14>;
+pub type MultiLayerSudoku_196x196x196 = MultiLayerSudoku<u8, 14>;
 
 /// A type alias for a 225x225x225 `MultiLayerSudoku` using `u8` as the underlying type.
 /// 
 /// This configuration uses `N = 15`, resulting in a total grid size of 225x225x225
 /// (15^2 x 15^2 x 15^2).
 #[allow(non_camel_case_types)]
-pub type MultiLayerSudoku_225X225X225 = MultiLayerSudoku<u8, 15>;
+pub type MultiLayerSudoku_225x225x225 = MultiLayerSudoku<u8, 15>;
 
 /// A type alias for a 256x256x256 `MultiLayerSudoku` using `u16` as the underlying type.
 /// 
 /// This configuration uses `N = 16`, resulting in a total grid size of 256x256x256
 /// (16^2 x 16^2 x 16^2).
 #[allow(non_camel_case_types)]
-pub type MultiLayerSudoku_256X256X256 = MultiLayerSudoku<u16, 16>;
+pub type MultiLayerSudoku_256x256x256 = MultiLayerSudoku<u16, 16>;
 
 /// A type alias for a 289x289x289 `MultiLayerSudoku` using `u16` as the underlying type.
 /// 
 /// This configuration uses `N = 17`, resulting in a total grid size of 289x289x289
 /// (17^2 x 17^2 x 17^2).
 #[allow(non_camel_case_types)]
-pub type MultiLayerSudoku_289X289X289 = MultiLayerSudoku<u16, 17>;
+pub type MultiLayerSudoku_289x289x289 = MultiLayerSudoku<u16, 17>;
 
 /// A type alias for a 324x324x324 `MultiLayerSudoku` using `u16` as the underlying type.
 /// 
 /// This configuration uses `N = 18`, resulting in a total grid size of 324x324x324
 /// (18^2 x 18^2 x 18^2).
 #[allow(non_camel_case_types)]
-pub type MultiLayerSudoku_324X324X324 = MultiLayerSudoku<u16, 18>;
+pub type MultiLayerSudoku_324x324x324 = MultiLayerSudoku<u16, 18>;
 
 /// A type alias for a 361x361x361 `MultiLayerSudoku` using `u16` as the underlying type.
 /// 
 /// This configuration uses `N = 19`, resulting in a total grid size of 361x361x361
 /// (19^2 x 19^2 x 19^2).
 #[allow(non_camel_case_types)]
-pub type MultiLayerSudoku_361X361X361 = MultiLayerSudoku<u16, 19>;
+pub type MultiLayerSudoku_361x361x361 = MultiLayerSudoku<u16, 19>;
 
 /// A type alias for a 400x400x400 `MultiLayerSudoku` using `u16` as the underlying type.
 /// 
 /// This configuration uses `N = 20`, resulting in a total grid size of 400x400x400
 /// (20^2 x 20^2 x 20^2).
 #[allow(non_camel_case_types)]
-pub type MultiLayerSudoku_400X400X400 = MultiLayerSudoku<u16, 20>;
+pub type MultiLayerSudoku_400x400x400 = MultiLayerSudoku<u16, 20>;
 
 
 /// # Introduction
 /// Sudoku is the one of the famous puzzle games. The standard Sudoku that you
 /// know is a 2D Sudoku puzzle. If you are interested in it, please refer to
 /// [PlaneSudoku](../plane_sudoku/struct.PlaneSudoku.html#struct.PlaneSudoku).
+/// This struct `MultiLayerSudoku` is slightly different from `CubicSudoku`.
+/// If you are interested in `CubicSudoku`, please refer to
+/// [CubicSudoku](../cubic_sudoku/struct.CubicSudoku.html#struct.CubicSudoku).
 /// This struct `MultiLayerSudoku` is designed for 3D Sudoku puzzles, which are
 /// 3D Sudoku puzzles, this struct `MultiLayerSudoku` is designed to handle
 /// 3D Sudoku puzzles, which are an extension of the traditional 2D Sudoku into
 /// three dimensions. In a 3D Sudoku, the grid is structured as a cube
 /// (multi-layered), and the rules of Sudoku apply across all three dimensions.
-/// Each layer of the cube must contain all unique numbers, and the same applies
-/// to rows and columns across layers. This struct provides functionality for
-/// generating and solving 3D Sudoku puzzles of various sizes, allowing for a
-/// more complex and engaging puzzle-solving experience compared to traditional
-/// 2D Sudoku. Its size is a (N^2 X N^2 X N^2) grid.
+/// Every planar slice (in X, Y, and Z directions) must be a valid 2D Sudoku
+/// puzzle, and the same applies to rows and columns across layers. This struct
+/// provides functionality for generating and solving 3D Sudoku puzzles of
+/// various sizes, allowing for a more complex and engaging puzzle-solving
+/// experience compared to traditional 2D Sudoku. Its size is a
+/// (N^2 X N^2 X N^2) grid.
 /// You can define the size by choosing the generic constant `N`.
 /// 
 /// # Generic Constants
@@ -176,19 +180,19 @@ pub type MultiLayerSudoku_400X400X400 = MultiLayerSudoku<u16, 20>;
 ///   the underlying type `T` (`N^2 <= T::MAX`).
 ///   So, the size of the sudoku cube is N^2 x N x N x N x N
 ///   (= N^2 x N^2 x N^2). For example, if `N` = 2, the size of the sudoku cube
-///   is 2 x 2 x 2. The default value of `N` = `2`.
+///   is 4 x 4 x 4. The default value of `N` = `2`.
 /// 
 /// # Rules for Multi-layer Sudoku (MultiLayerSudoku)
 /// A `MultiLayerSudoku` is a 3-dimensional puzzle structured as a cube with 
 /// dimensions of (N^2 x N^2 x N^2). It is composed of N^2 internal layers 
 /// along each axis.
 ///
-/// ## Core Structure
+/// ### Core Structure
 /// - **3D Grid**: A cubic volume containing (N^2)^3 total cells.
 /// - **Planar Slices**: The cube can be viewed as a stack of N^2 slices 
 ///   along any of the three primary axes (X, Y, or Z).
 ///
-/// ## Puzzle Constraints
+/// ### Puzzle Constraints
 /// To be a valid solution, every unit of length N^2 and every sub-grid 
 /// within the slices must satisfy the following:
 ///
@@ -217,29 +221,29 @@ pub type MultiLayerSudoku_400X400X400 = MultiLayerSudoku<u16, 20>;
 /// You can use these type aliases to easily create Sudoku instances of the
 /// desired size without having to specify the generic parameters each time.
 /// The following type aliases are available:
-/// - `MultiLayerSudoku_4X4X4` for a 4x4x4 Sudoku (N=2)
-/// - `MultiLayerSudoku_9X9X9` for a 9x9x9 Sudoku (N=3)
-/// - `MultiLayerSudoku_16X16X16` for a 16x16x16 Sudoku (N=4)
-/// - `MultiLayerSudoku_25X25X25` for a 25x25x25 Sudoku (N=5)
-/// - `MultiLayerSudoku_36X36X36` for a 36x36x36 Sudoku (N=6)
-/// - `MultiLayerSudoku_49X49X49` for a 49x49x49 Sudoku (N=7)
-/// - `MultiLayerSudoku_64X64X64` for a 64x64x64 Sudoku (N=8)
-/// - `MultiLayerSudoku_81X81X81` for an 81x81x81 Sudoku (N=9)
-/// - `MultiLayerSudoku_100X100X100` for a 100x100x100 Sudoku (N=10)
-/// - `MultiLayerSudoku_121X121X121` for a 121x121x121 Sudoku (N=11)
-/// - `MultiLayerSudoku_144X144X144` for a 144x144x144 Sudoku (N=12)
-/// - `MultiLayerSudoku_169X169X169` for a 169x169x169 Sudoku (N=13)
-/// - `MultiLayerSudoku_196X196X196` for a 196x196x196 Sudoku (N=14)
-/// - `MultiLayerSudoku_225X225X225` for a 225x225x225 Sudoku (N=15)
-/// - `MultiLayerSudoku_289X289X289` for a 289x289x289 Sudoku (N=16)
-/// - `MultiLayerSudoku_324X324X324` for a 324x324x324 Sudoku (N=18)
-/// - `MultiLayerSudoku_361X361X361` for a 361x361x361 Sudoku (N=19)
-/// - `MultiLayerSudoku_400X400X400` for a 400x400x400 Sudoku (N=20)
+/// - `MultiLayerSudoku_4x4x4` for a 4x4x4 Sudoku (N=2)
+/// - `MultiLayerSudoku_9x9x9` for a 9x9x9 Sudoku (N=3)
+/// - `MultiLayerSudoku_16x16x16` for a 16x16x16 Sudoku (N=4)
+/// - `MultiLayerSudoku_25x25x25` for a 25x25x25 Sudoku (N=5)
+/// - `MultiLayerSudoku_36x36x36` for a 36x36x36 Sudoku (N=6)
+/// - `MultiLayerSudoku_49x49x49` for a 49x49x49 Sudoku (N=7)
+/// - `MultiLayerSudoku_64x64x64` for a 64x64x64 Sudoku (N=8)
+/// - `MultiLayerSudoku_81x81x81` for an 81x81x81 Sudoku (N=9)
+/// - `MultiLayerSudoku_100x100x100` for a 100x100x100 Sudoku (N=10)
+/// - `MultiLayerSudoku_121x121x121` for a 121x121x121 Sudoku (N=11)
+/// - `MultiLayerSudoku_144x144x144` for a 144x144x144 Sudoku (N=12)
+/// - `MultiLayerSudoku_169x169x169` for a 169x169x169 Sudoku (N=13)
+/// - `MultiLayerSudoku_196x196x196` for a 196x196x196 Sudoku (N=14)
+/// - `MultiLayerSudoku_225x225x225` for a 225x225x225 Sudoku (N=15)
+/// - `MultiLayerSudoku_289x289x289` for a 289x289x289 Sudoku (N=16)
+/// - `MultiLayerSudoku_324x324x324` for a 324x324x324 Sudoku (N=18)
+/// - `MultiLayerSudoku_361x361x361` for a 361x361x361 Sudoku (N=19)
+/// - `MultiLayerSudoku_400x400x400` for a 400x400x400 Sudoku (N=20)
 /// 
 /// You can use these type aliases to create Sudoku instances of the desired
 /// size without having to specify the generic parameters each time.
-/// For example, to create a standard 9x9 Sudoku,
-/// you can simply use `PlaneSudoku_9X9::new()`.
+/// For example, to create a standard 4x4x4 Sudoku,
+/// you can simply use `MultiLayerSudoku_4X4X4::new()`.
 pub struct MultiLayerSudoku<T: SmallUInt = u8, const N: usize = 2>
 {
     sudoku: [[[[[[T; N]; N]; N]; N]; N]; N],
